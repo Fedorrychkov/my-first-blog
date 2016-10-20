@@ -7,7 +7,8 @@
                     {{ post.published_date }}
                 </div>
                 <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                <p>{{ post.text|linebreaksbr }}</p>
+                <p>{{ post.text|truncatechars:290 }}</p>
+                <p>Comments: {{ post.comments.count }}</p>
             </div>
         {% endfor %}
     {% endblock content %}
